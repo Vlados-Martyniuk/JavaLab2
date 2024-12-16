@@ -1,6 +1,25 @@
+/**
+ * Клас для виконання операцій над текстом.
+ */
 
 public class TextOperation {
 
+    /**
+     * Обробляє текст, міняючи перше і останнє слово місцями у кожному реченні.
+     *
+     * Алгоритм роботи:
+     *1. Перевірка вхідного тексту: якщо текст є порожнім або `null`, генерується виняток {@link IllegalArgumentException}.
+     *2. Розбиття тексту на речення за допомогою регулярного виразу.
+     *3. Обробка кожного речення:
+     *  - Розбиття речення на слова.
+     *  - Заміна першого і останнього слова місцями.
+     *  - Збереження розділового знака в кінці речення.
+     *  - Додавання обробленого речення до результату.
+     *4. Повернення результату як об'єкта {@link StringBuilder}.
+     * @param text текст для обробки
+     * @return текст із заміненими місцями першим і останнім словами в кожному реченні
+     * @throws IllegalArgumentException якщо текст є порожнім або `null`
+     */
     public StringBuilder processText(String text) {
         if (text == null || text.isEmpty()) {
             throw new IllegalArgumentException("Текст не може бути порожнім!");
@@ -11,7 +30,7 @@ public class TextOperation {
         StringBuilder result = new StringBuilder();
 
         for (String sentence : sentences) {
-            // Розділення речення на слова
+            
             String[] words = sentence.trim().split("\\s+");
             if (words.length > 1) {
 
